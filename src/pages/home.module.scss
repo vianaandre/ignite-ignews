@@ -1,0 +1,40 @@
+section.home {
+
+  display: flex;
+
+  max-width: 1120px;
+  margin: 5rem auto;
+  padding: 0.2rem;
+
+  div.homeDescription {
+    margin-right: 10rem;
+    width: 530px;
+    margin-top: 2rem;
+
+    span {
+      font-size: 1.5rem;
+      color: var(--white);
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      color: var(--white);
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+
+      span {
+        font-size: 4.5rem;
+        color: #61DCFB
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+
+      span {
+        color: #61DCFB
+      }
+    }
+  }
+}
