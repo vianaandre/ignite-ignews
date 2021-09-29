@@ -18,6 +18,8 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
+  "resolveJsonModule": true,
+  "esModuleInterop": true, 
   "include": [
     "next-env.d.ts",
     "**/*.ts",
