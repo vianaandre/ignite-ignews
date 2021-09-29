@@ -1,0 +1,45 @@
+main.container {
+  width: 720px;
+  margin: 5rem auto 5rem;
+
+  div.posts {
+    a {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--gray-800);
+      
+      & + a {
+        margin-top: 2rem;
+      }
+
+      &:hover {
+         strong {
+          color: var(--yellow-500);
+         }
+      }
+
+      time {
+        font-size: 1rem;
+        color: var(--white);
+        opacity: 0.7;
+        margin-bottom: 1rem;
+      }
+
+      strong {
+        font-size: 1.5rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1rem;
+        color: var(--white);
+        opacity: 0.7;
+        font-weight: 300;
+        line-height: 26px;
+      }
+    }
+  }
+}

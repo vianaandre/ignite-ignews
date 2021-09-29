@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Provider from "next-auth/providers";
 import { fauna } from '../../../services/faunadb';
-import { Collection, Index, query as q } from 'faunadb';
+import { query as q } from 'faunadb';
 
 export default NextAuth({
   providers: [
@@ -13,6 +13,38 @@ export default NextAuth({
   ],
 
   callbacks: {
+    async session(session) {
+      try {
+        const usersId: { ref: string } = await fauna.query(
+          q.Get(
+            q.Match(
+              q.Index('by_email_user'),
+              q.Casefold(session.user.email)
+            )
+          )
+        )
+
+        const subscriptionId: { data: { status: string | null} } = await fauna.query(
+          q.Get(
+            q.Match(
+              q.Index('subscription_by_user_ref'),
+              usersId.ref
+            )
+          )
+        )
+  
+        return {
+          ...session,
+          activeSubscription: subscriptionId.data.status
+        };
+        
+      } catch(err) {
+        return {
+          ...session,
+          activeSubscription: null
+        };
+      }
+    },
     async signIn(user) {
       try {
         const userExist = await fauna.query(

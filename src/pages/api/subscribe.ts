@@ -67,9 +67,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     return res.status(200).json({ sessionId: checkoutSession.id })
 
-  }else {
-    res.setHeader('Allow', 'POST')
-    res.status(405).end('Method not allowed');
   }
 
 }
