@@ -14,6 +14,7 @@
 - NextJs
 - Typescript
 - Sass
+- Testes unitários com Jest e Testing library
 
 <hr />
 
