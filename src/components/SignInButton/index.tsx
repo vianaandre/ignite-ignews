@@ -7,24 +7,29 @@ import styles from './styles.module.scss';
 export const SignInButton = () => {
   const [ session ] = useSession()
 
-  return session ? (
-    <button 
-      type="button" 
-      className={styles.signinButton} 
-      onClick={() => signOut()}
-    >
-      <FaGithub  color="#04d361" />
-      {session.user.name}
-      <FiX />
-    </button>  
-  ) : (
-    <button 
-      type="button" 
-      className={styles.signinButton} 
-      onClick={() => signIn('github')}
-    >
-      <FaGithub  color="#eba412" />
-      Sign in with Github!
-    </button>
+  return (
+    <>
+      {session ? (
+      <button 
+        type="button" 
+        className={styles.signinButton} 
+        onClick={() => signOut()}
+      >
+        <FaGithub  color="#04d361" />
+        {session.user.name}
+        <FiX />
+      </button>  
+      ) : (
+        <button 
+        type="button" 
+        className={styles.signinButton} 
+          onClick={() => signIn('github')}
+        >
+          <FaGithub  color="#eba412" />
+          Sign in with Github!
+        </button>
+      )
+      }
+    </>
   )
 }

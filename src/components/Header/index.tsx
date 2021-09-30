@@ -7,16 +7,19 @@ export const Header = () => {
 
   const { pathname } = useRouter();
 
+  const classActiveHome = pathname === '/' ? styles.active : ''
+  const classActivePosts = pathname === '/posts' ? styles.active : ''
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.haderContainerContent}>
         <img src="/assets/logo.svg" alt="" />
         <nav>
           <Link href="/">
-            <a className={pathname == '/' && styles.active}>Home</a>
+            <a className={classActiveHome}>Home</a>
           </Link>
           <Link href="/posts">
-            <a className={pathname == '/posts' && styles.active} >Posts</a>
+            <a className={classActivePosts} >Posts</a>
           </Link>
         </nav>
         <SignInButton />
