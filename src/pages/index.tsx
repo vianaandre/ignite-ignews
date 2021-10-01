@@ -26,7 +26,7 @@ export default function Home({ product }: HomeProps) {
         <span> React</span> world.</h1>
         <p>Get acess to all publications <br />
         <span>for {product.amount} month</span> </p>
-        <SubscribeButton idProduct={product.idProduct} />
+        <SubscribeButton />
       </div>
       <img src="/assets/avatar.svg" alt="Girl coding" />
     </section>

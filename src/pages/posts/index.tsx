@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const posts = response.results.map(post => {
     return {
-      slug: post.slugs,
+      slug: post.uid,
       title: PrismicDom.RichText.asText(post.data.title),
       abstract: post.data.content.find(content => content.type === 'paragraph')?.text ?? '',
       updateAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
