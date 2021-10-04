@@ -54,14 +54,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
 
   const prismic = getPrismicData();
@@ -83,7 +76,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post
     },
-    revalidate: 60 * 30, // 30 minutes
   }
 
 }
